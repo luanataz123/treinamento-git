@@ -1,6 +1,4 @@
 Oi! Eu sou Alice. Sou um arquivo que alguém adicionou neste repositório há um bom tempo.
-Linha adicionada via github.
-
 E esta é a minha nova linha!
 Puxa, uma terceira linha!
 E agora a quarta, a última.
