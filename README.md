@@ -714,6 +714,33 @@ O `git reset` é uma operação poderosa, pois permite modificar o histórico do
 > 
 > Faça o commit novamente das alterações e repita os passos acima, trocando a opção `--soft` pela opção `--mixed` e depois pela opção `--hard` e veja as diferenças.
 
+## Revert
+
+O comando `git revert` no Git é usado para criar um novo commit que desfaz as alterações introduzidas por um ou mais commits anteriores. Em vez de modificar o histórico do Git como o `git reset`, o `git revert` cria um novo commit que reverte as alterações específicas.
+
+A principal finalidade do `git revert` é desfazer alterações de forma segura, preservando o histórico existente e permitindo que as alterações revertidas sejam facilmente rastreadas e compartilhadas com outros colaboradores.
+
+Aqui estão algumas características e usos do `git revert`:
+
+- Desfazer alterações específicas: O `git revert` permite desfazer alterações introduzidas por commits específicos, não afetando os commits posteriores. Ele reverte as modificações desses commits, criando um novo commit que reflete as alterações desfeitas.
+
+- Preservação do histórico: Ao contrário do `git reset`, que modifica o histórico, o `git revert` cria um novo commit que desfaz as alterações. Isso mantém o histórico de commits intacto, permitindo que outros colaboradores vejam e entendam quais alterações foram revertidas.
+
+- Reverter commits compartilhados: O `git revert` é especialmente útil quando você deseja reverter alterações em commits que já foram compartilhados com outros colaboradores. Em vez de reescrever o histórico e causar conflitos ao sincronizar o repositório, o `git revert` cria um novo commit que desfaz as alterações sem alterar os commits existentes.
+
+- Múltiplos commits: O `git revert` pode desfazer alterações de vários commits em uma única operação. Você pode especificar vários hashes de commits para serem revertidos em sequência.
+
+- Resolução de conflitos: Se houver conflitos durante a reversão das alterações, o Git solicitará que você resolva os conflitos da mesma maneira que durante uma mesclagem de ramificações. Isso permite que você ajuste as alterações revertidas conforme necessário antes de criar o novo commit de reversão.
+
+Em resumo, o `git revert` é usado para criar um novo commit que desfaz as alterações de commits anteriores, preservando o histórico existente. É uma maneira segura de reverter alterações, especialmente em cenários em que os commits já foram compartilhados com outros colaboradores.
+
+> Adicione novamente um texto no arquivo Doug.txt, faça commit com a mensagem "Inclusão de texto em Doug" e compartilhe suas alterações com o comando `git push`.
+> 
+> Agora adicione um arquivo chamado Eric.txt, faça commit e execute o comando `git push`.
+> 
+> Vamos excluir o texto do arquivo Doug.txt, sem interferir no arquivo Eric.txt. Para isso, procure o hash do commit "Criação de Doug", usando o `git log`.
+> 
+> Copie o hash, então execute o comando `git revert <commit>` e veja o que aconteceu usando o comando `git log`.
 
 ## Cherry-picking
 
