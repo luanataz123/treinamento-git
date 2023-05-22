@@ -647,6 +647,35 @@ Se você ainda não executou o `git pull` quando o mencionei há alguns parágra
 
 Obviamente, como em uma `rebase` normal (ou `merge`) você terá que resolver o conflito que introduzimos para que o `git pull` finalize.
 
+## Tag
+O comando `git tag` no Git é usado para marcar pontos específicos na história do repositório, como versões de lançamento, pontos de referência importantes ou marcos significativos. As tags fornecem rótulos descritivos e estáveis que podem ser usados para referenciar facilmente commits específicos.
+
+Aqui estão algumas finalidades e recursos do `git tag`:
+
+1. Marcar versões de lançamento: As tags são frequentemente usadas para marcar versões de lançamento de um projeto. Você pode criar uma tag para indicar uma versão estável e nomeá-la de acordo com o esquema de nomenclatura do projeto (por exemplo, v1.0.0). Isso permite que outros colaboradores ou usuários finais identifiquem e acessem facilmente uma versão específica do código-fonte.
+
+2. Criar pontos de referência: As tags podem ser usadas para marcar pontos específicos no histórico do repositório que são importantes para referência futura. Por exemplo, você pode criar uma tag para marcar o início de um novo recurso, um marco significativo no desenvolvimento ou qualquer outro ponto que você deseje destacar para uso posterior.
+
+3. Facilitar a referência a commits específicos: As tags fornecem nomes simbólicos para commits específicos, o que torna mais fácil referenciar commits importantes. Em vez de usar hashes de commit longos e difíceis de lembrar, você pode usar tags significativas para fazer referência a commits específicos em comandos Git ou em outras ferramentas.
+
+4. Tags anotadas: O Git oferece suporte a dois tipos de tags: tags leves (lightweight) e tags anotadas (annotated). As tags leves são apenas marcadores de pontos específicos no histórico do Git e são criadas com o comando `git tag`. Já as tags anotadas incluem informações adicionais, como o autor, a data, uma mensagem e um objeto separado no banco de dados do Git. As tags anotadas são criadas usando o parâmetro `-a` ou `--annotate` junto com o comando `git tag`.
+
+5. Compartilhamento de tags: As tags são compartilhadas entre repositórios quando você faz o push das tags específicas para um repositório remoto. Isso permite que outros colaboradores acessem as tags marcadas e usem-nas para referenciar commits específicos.
+
+> Vamos supor que nosso projeto está pronto para sua primeira entrada em produção. Vamos marcá-lo com a tag v1.0 para no futuro sabermos qual era o estado do nosso código quando lançamos sua primeira versão.
+> 
+> Vá em frente e execute um `git tag v1.0`.
+> 
+> Agora vamos verificar quais tags existem no nosso repositório, para isso use o comando `git tag`.
+> 
+> Vamos supor que cometemos um erro, ainda teríamos que fazer mais uma alteração no projeto antes de lançar a versão 1.0, então vamos deletar a tag recém criada, usando o comando `git tag -d v1.0`.
+> 
+> Podemos conferir se ela foi excluída mesmo usando o comando `git tag` novamente.
+> 
+> Agora faça mais uma alteração no código, faça commit dela e então crie novamente a tag v1.0.
+
+O comando `git tag` possui ainda outras opções. Para obter informações detalhadas sobre o uso do comando `git tag`, você pode consultar a documentação oficial do Git ou executar `git help tag` no terminal para visualizar a ajuda integrada do Git.
+
 ## Cherry-picking
 
 > Parabéns! Você chegou aos recursos mais avançados!
