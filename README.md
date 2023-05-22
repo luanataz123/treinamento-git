@@ -648,6 +648,7 @@ Se você ainda não executou o `git pull` quando o mencionei há alguns parágra
 Obviamente, como em uma `rebase` normal (ou `merge`) você terá que resolver o conflito que introduzimos para que o `git pull` finalize.
 
 ## Tag
+
 O comando `git tag` no Git é usado para marcar pontos específicos na história do repositório, como versões de lançamento, pontos de referência importantes ou marcos significativos. As tags fornecem rótulos descritivos e estáveis que podem ser usados para referenciar facilmente commits específicos.
 
 Aqui estão algumas finalidades e recursos do `git tag`:
@@ -675,6 +676,44 @@ Aqui estão algumas finalidades e recursos do `git tag`:
 > Agora faça mais uma alteração no código, faça commit dela e então crie novamente a tag v1.0.
 
 O comando `git tag` possui ainda outras opções. Para obter informações detalhadas sobre o uso do comando `git tag`, você pode consultar a documentação oficial do Git ou executar `git help tag` no terminal para visualizar a ajuda integrada do Git.
+
+## Reset
+
+O comando `git reset` no Git é usado para desfazer alterações ou reposicionar o HEAD e a ramificação atual para um determinado estado. Ele permite reverter commits, desfazer alterações em arquivos e reposicionar o ramo atual.
+
+Existem três formas principais de usar o comando `git reset`, cada uma com um parâmetro diferente:
+
+1. `git reset --soft <commit>`:
+   - Este modo de reset mantém as alterações no seu diretório de trabalho e no índice (staging area), mas desfaz os commits até o commit especificado.
+   - O HEAD e a ramificação atual serão reposicionados para o commit especificado, desfazendo os commits posteriores.
+   - Os arquivos alterados nos commits desfeitos permanecerão modificados, prontos para serem reconfirmados.
+   - Este modo é útil quando você deseja refazer commits anteriores sem perder as alterações realizadas.
+
+2. `git reset --mixed <commit>` (padrão):
+   - Este é o modo de reset padrão se nenhum modo for especificado.
+   - Ele desfaz os commits até o commit especificado, assim como o modo `--soft`, mas também remove as alterações do índice (staging area).
+   - Os arquivos alterados nos commits desfeitos serão mantidos como modificações não confirmadas no diretório de trabalho.
+   - Este modo é útil quando você deseja desfazer commits e começar de novo com as alterações não confirmadas.
+
+3. `git reset --hard <commit>`:
+   - Este modo de reset desfaz completamente os commits até o commit especificado, assim como o modo `--mixed`, mas também descarta todas as alterações no diretório de trabalho.
+   - Todos os arquivos modificados serão revertidos para o estado do commit especificado.
+   - Cuidado ao usar este modo, pois as alterações não confirmadas serão perdidas permanentemente.
+
+O `<commit>` especificado pode ser um hash de commit, um nome de ramificação ou uma referência de commit.
+
+O `git reset` é uma operação poderosa, pois permite modificar o histórico do Git. No entanto, deve ser usado com cuidado, especialmente ao lidar com commits já compartilhados com outros colaboradores. 
+
+> Vamos criar um novo arquivo Doug.txt no nosso repositório. Faça commit com a mensagem "Criação de Doug".
+> 
+> Agora adicione um texto no arquivo Doug.txt e faça um novo commit com a mensagem "Inclusão de texto em Doug".
+> 
+> Vamos procurar o hash do commit "Criação de Doug", usando o `git log`.
+> 
+> Copie o hash, então execute o comando `git reset --soft <commit>` e veja o que acontece.
+> 
+> Faça o commit novamente das alterações e repita os passos acima, trocando a opção `--soft` pela opção `--mixed` e depois pela opção `--hard` e veja as diferenças.
+
 
 ## Cherry-picking
 
