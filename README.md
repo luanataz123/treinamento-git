@@ -742,6 +742,36 @@ Em resumo, o `git revert` é usado para criar um novo commit que desfaz as alter
 > 
 > Copie o hash, então execute o comando `git revert <commit>` e veja o que aconteceu usando o comando `git log`.
 
+## Renomeando ou movendo arquivos
+
+O comando `git mv` no Git é usado para renomear ou mover arquivos e diretórios no repositório Git. Ele é uma maneira conveniente de renomear ou mover arquivos enquanto mantém o controle de versão e o histórico de alterações.
+
+Aqui estão as principais finalidades e recursos do `git mv`:
+
+1. Renomear arquivos: O `git mv` é usado para renomear arquivos no repositório. Em vez de usar comandos tradicionais de renomeação do sistema de arquivos, o `git mv` informa ao Git sobre a alteração de nome, mantendo o controle de versão adequado. Isso significa que o Git reconhecerá a alteração como uma operação de renomeação, em vez de excluir o arquivo antigo e adicionar um novo.
+
+2. Mover arquivos: Além de renomear, o `git mv` também pode ser usado para mover arquivos de um diretório para outro dentro do repositório Git. Isso permite que você organize seus arquivos e diretórios sem perder o histórico de alterações associado a eles.
+
+3. Acompanhamento automático: O `git mv` atualiza automaticamente o índice (staging area) do Git para refletir a alteração de nome ou movimentação. Isso significa que você não precisa executar comandos adicionais para informar ao Git sobre a alteração. Ele detecta automaticamente a alteração e prepara o arquivo para a próxima confirmação (commit).
+
+4. Integração com ferramentas de terceiros: O `git mv` também é usado por algumas ferramentas e IDEs que têm integração com o Git. Por exemplo, ao renomear ou mover um arquivo dentro da interface de uma IDE, ela pode executar automaticamente o comando `git mv` em segundo plano para realizar a operação corretamente no Git.
+
+5. Legibilidade do histórico de alterações: O uso do `git mv` ao renomear ou mover arquivos ajuda a manter a legibilidade do histórico de alterações. Em vez de ver exclusões e adições separadas, o histórico mostra claramente a operação de renomeação ou movimentação, o que torna mais fácil entender como os arquivos foram modificados ao longo do tempo.
+
+É importante observar que o `git mv` não é um comando obrigatório para renomear ou mover arquivos no Git. Você também pode usar comandos tradicionais do sistema de arquivos para renomear ou mover arquivos e, em seguida, usar o `git add` para preparar as alterações para a próxima confirmação (commit). No entanto, o `git mv` é conveniente e garante que o Git reconheça corretamente a operação de renomeação ou movimentação, mantendo o histórico de alterações adequado.
+
+> Crie um arquivo chamado `John.txt` e faça commit.
+> 
+> Agora renomeie o arquivo para Johnny.txt usando os comandos normais do sistema de arquivos.
+> 
+> Use o comando `git status` para ver o que aconteceu.
+> 
+> Faça commit das alterações.
+> 
+> Agora renomeie o arquivo novamente para John.txt, usando o comando `git mv Johnny.txt John.txt`.
+> 
+> Faça commit e use o comando `git log` para ver o que aconteceu.
+
 ## Cherry-picking
 
 > Parabéns! Você chegou aos recursos mais avançados!
