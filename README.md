@@ -762,15 +762,64 @@ Aqui estão as principais finalidades e recursos do `git mv`:
 
 > Crie um arquivo chamado `John.txt` e faça commit.
 > 
-> Agora renomeie o arquivo para Johnny.txt usando os comandos normais do sistema de arquivos.
-> 
-> Use o comando `git status` para ver o que aconteceu.
-> 
-> Faça commit das alterações.
-> 
 > Agora renomeie o arquivo novamente para John.txt, usando o comando `git mv Johnny.txt John.txt`.
 > 
 > Faça commit e use o comando `git log` para ver o que aconteceu.
+
+## Excluindo arquivos
+
+O comando `git rm` no Git é usado para remover arquivos ou diretórios do repositório Git. Ele informa ao Git que você deseja remover o arquivo ou diretório e prepara essa alteração para ser confirmada (commit).
+
+Aqui estão as principais finalidades e recursos do `git rm`:
+
+1. Remover arquivos rastreados: O `git rm` é usado para remover arquivos que estão sendo rastreados pelo Git, ou seja, arquivos que já foram adicionados ao repositório. Quando você executa o `git rm`, o Git registra a remoção do arquivo, atualiza o índice (staging area) e o diretório de trabalho para refletir essa alteração.
+
+2. Remover diretórios e seu conteúdo: Além de remover arquivos individuais, o `git rm` também pode ser usado para remover diretórios inteiros e todo o seu conteúdo. Você pode especificar o caminho para o diretório que deseja remover, e o Git cuidará de remover todos os arquivos e subdiretórios dentro dele.
+
+3. Opções para manipulação de arquivos: O `git rm` possui opções adicionais que permitem ajustar o comportamento ao remover arquivos:
+   - `-f` ou `--force`: Força a remoção de arquivos, ignorando avisos ou erros.
+   - `-r` ou `--recursive`: Permite a remoção recursiva de diretórios e seu conteúdo.
+   - `--cached`: Remove os arquivos do índice (staging area), mas preserva os arquivos no diretório de trabalho. Isso é útil quando você deseja parar de rastrear um arquivo, mas mantê-lo localmente no seu sistema.
+
+4. Integração com ferramentas de terceiros: Assim como o `git mv`, o `git rm` também é usado por algumas ferramentas e IDEs que têm integração com o Git. Por exemplo, ao excluir um arquivo dentro da interface de uma IDE, ela pode executar automaticamente o comando `git rm` em segundo plano para remover o arquivo corretamente do Git.
+
+5. Preparação para commit: Após executar o `git rm`, a remoção do arquivo é registrada no Git e preparada para a próxima confirmação (commit). Isso significa que, para efetivar a remoção permanentemente no histórico do Git, você precisará confirmar as alterações usando o comando `git commit`.
+
+É importante observar que, ao executar o `git rm`, os arquivos são removidos do histórico de versões do Git. Portanto, tome cuidado ao usar esse comando, pois as alterações serão permanentes, a menos que você restaure o estado anterior de um commit anterior. Certifique-se de ter um backup adequado ou esteja certo de que os arquivos a serem removidos não são mais necessários no repositório.
+
+> Crie um arquivo chamado `Barry.txt` e faça commit.
+> 
+> Agora exclua o arquivo usando o comando `git rm Barry.txt`.
+> 
+> Faça commit e use o comando `git log` para ver o que aconteceu.
+
+## Ignorando arquivos para o controle de versão
+
+O arquivo `.gitignore` é um arquivo usado pelo Git para especificar quais arquivos e diretórios devem ser ignorados pelo controle de versão. Ele permite que você especifique padrões de arquivos ou diretórios que o Git deve ignorar ao rastrear alterações no repositório.
+
+Aqui estão as principais finalidades e recursos do arquivo `.gitignore`:
+
+1. Ignorar arquivos gerados: O `.gitignore` é comumente usado para ignorar arquivos gerados automaticamente durante o processo de compilação, execução ou construção do projeto. Isso inclui arquivos binários, arquivos temporários, arquivos de log, caches, entre outros. Ao adicioná-los ao `.gitignore`, você evita que esses arquivos sejam acidentalmente incluídos nas alterações do Git.
+
+2. Excluir arquivos sensíveis ou confidenciais: Você pode usar o `.gitignore` para excluir arquivos que contenham informações sensíveis ou confidenciais, como chaves de acesso, senhas, tokens ou arquivos de configuração específicos de um ambiente local. Isso ajuda a garantir que essas informações não sejam compartilhadas ou enviadas para um repositório remoto acidentalmente.
+
+3. Ignorar arquivos de build e dependências: Muitas vezes, é desnecessário rastrear arquivos de build ou dependências de um projeto, pois eles podem ser facilmente reconstruídos ou baixados novamente. O `.gitignore` permite que você especifique padrões de arquivos ou diretórios relacionados a build e dependências para que o Git não os rastreie.
+
+4. Personalizar o `.gitignore` por projeto: Cada projeto pode ter requisitos diferentes em relação aos arquivos a serem ignorados. O `.gitignore` permite que você personalize as regras de exclusão de acordo com as necessidades específicas de cada projeto, adicionando ou removendo padrões conforme necessário.
+
+5. Excluir arquivos específicos: Além de especificar padrões de arquivos ou diretórios a serem ignorados, você também pode listar arquivos ou diretórios específicos no `.gitignore` para excluí-los do controle de versão.
+
+O arquivo `.gitignore` é colocado na raiz do repositório Git e é lido pelo Git para determinar quais arquivos e diretórios devem ser ignorados. Cada linha no arquivo `.gitignore` representa um padrão de arquivo ou diretório a ser ignorado. Esses padrões podem ser especificados usando wildcards, como `*` para representar qualquer sequência de caracteres e `/` para separar diretórios.
+
+É importante observar que, uma vez que um arquivo ou diretório é adicionado ao `.gitignore`, ele não será rastreado pelo Git, a menos que seja removido explicitamente do `.gitignore`. Portanto, certifique-se de revisar regularmente o conteúdo do `.gitignore` para garantir que todos os arquivos e diretórios relevantes estejam sendo rastreados adequadamente ou ignorados conforme necessário.
+
+> Abra o arquivo .gitignore
+> 
+> Adicione uma linha com o conteúdo `Mary.txt` e faça commit.
+> 
+> Agora adicione um arquivo chamado `Mary.txt`.
+> 
+> Use o comando `git status` para ver o que aconteceu.
 
 ## Cherry-picking
 
