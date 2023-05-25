@@ -760,9 +760,9 @@ Aqui estão as principais finalidades e recursos do `git mv`:
 
 É importante observar que o `git mv` não é um comando obrigatório para renomear ou mover arquivos no Git. Você também pode usar comandos tradicionais do sistema de arquivos para renomear ou mover arquivos e, em seguida, usar o `git add` para preparar as alterações para a próxima confirmação (commit). No entanto, o `git mv` é conveniente e garante que o Git reconheça corretamente a operação de renomeação ou movimentação, mantendo o histórico de alterações adequado.
 
-> Crie um arquivo chamado `John.txt` e faça commit.
+> Crie um arquivo chamado `Johnny.txt` e faça commit.
 > 
-> Agora renomeie o arquivo novamente para John.txt, usando o comando `git mv Johnny.txt John.txt`.
+> Agora renomeie o arquivo para John.txt, usando o comando `git mv Johnny.txt John.txt`.
 > 
 > Faça commit e use o comando `git log` para ver o que aconteceu.
 
